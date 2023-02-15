@@ -12,7 +12,7 @@
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<section>
 		<div>
-			<form action="loginurl" method="post">
+			<form action="login" method="post">
 				id:<input type="text" name="n1"> 
 				<br>
 				pw:<input type="password" name="n2">
