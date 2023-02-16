@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcTemplate {
-
+public class JDBCTemplate {
 	public static Connection getConnection() {
 		Connection conn = null;
 		try {

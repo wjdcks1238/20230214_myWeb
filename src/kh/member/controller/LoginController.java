@@ -41,7 +41,7 @@ public class LoginController extends HttpServlet {
 //		String id = request.getParameter("id");
 //		String passwd = request.getParameter("passwd");
 		
-		//2
+		//2. DB 다녀오기
 		MemberVo result = new MemberService().login(vo);
 		if(result != null) {
 			System.out.println("로그인성공");
@@ -49,6 +49,12 @@ public class LoginController extends HttpServlet {
 		}else {
 			System.out.println("로그인실패");
 		}
+		
+		//3. 페이지 이동 및 데이터 전달 (셋중 하나로 메소드 꼭 끝냄)
+		//3-1 response.sendRedirect(request.getContextPath()+"url");
+		//3-2 request.setAttribute("name1", "값");
+		//3-2 request.getRequestDispatcher("xxx.jsp").forward(request,response);
+		//3-3 out.println(값); out.flush(); out.close();
 		response.sendRedirect(request.getContextPath()+"/");
 	}
 
