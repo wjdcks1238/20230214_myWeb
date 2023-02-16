@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kh.member.controller.vo.MemberVo;
 import kh.member.model.service.MemberService;
+import kh.member.model.vo.MemberVo;
 
 /**
  * Servlet implementation class LoginController
@@ -22,7 +22,6 @@ public class EnrollController extends HttpServlet {
      */
     public EnrollController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -31,28 +30,46 @@ public class EnrollController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/view/member/enroll.jsp").forward(request, response);
 	}
-	
-	@Override
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//1. 전달받은 데이터 읽어 변수에 담기
+		//request.setCharacterEncoding("UTF-8");
+		//1 전달받은데이터 읽어 변수에 담기
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
 		String name = request.getParameter("name");
-		String email = request.getParameter("email"); 
+		String email = request.getParameter("email");
 		MemberVo vo = new MemberVo();
-		vo.setId(id);
-		vo.setPasswd(passwd);
-		vo.setName(name);
 		vo.setEmail(email);
-		System.out.println("Ctrl param:"+vo);
+		vo.setId(id);
+		vo.setName(name);
+		vo.setPasswd(passwd);
+		System.out.println("Ctrl param: "+ vo);
 		//2. DB
 		int result = new MemberService().enroll(vo);
 		
-		if(result <1) {
-			System.out.println("회원가입 실패");
-		} else {
-			System.out.println("회원가입 성공");
+		if(result < 1) {
+			System.out.println("회원가입실패");
+		}  else {
+			System.out.println("회원가입성공");
+			response.sendRedirect(request.getContextPath()+"/");
 		}
-		response.sendRedirect(request.getContextPath()+"/");
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

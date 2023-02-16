@@ -9,26 +9,40 @@
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/view/header.jsp" />
+	<jsp:include page="/WEB-INF/view/header.jsp"/>
 	<section>
-		<div>
-			<form action="login" method="post">
-				id:<input type="text" name="n1"> 
-				<br>
-				pw:<input type="password" name="n2">
-				<br>
-				<button type="submit">로그인하기</button>
-				<button type="button" class="btn enroll">회원가입</button>
-			</form>
-		</div>
+		<form action="login" method="post">
+			id:<input type="text" name="id"> 
+			<br>
+			pw:<input type="password" name="passwd">
+			<br>
+			<button type="submit">로그인하기</button>
+			<button type="button" class="btn enroll">회원가입</button>
+		</form>
 	</section>
 	
 	<script>
-		$(".btn.enroll").on("click", handlerClickBtnEnroll);
-		function handlerClickBtnEnroll() {
+		$(".btn.enroll").on("click",handlerClickBtnEnroll);
+		function handlerClickBtnEnroll(){
 			console.log("btnEnroll 눌림");
-			location.href="<%= request.getContextPath()%>/enroll";
+			location.href="<%=request.getContextPath()%>/enroll";
 		}
 	</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </body>
 </html>

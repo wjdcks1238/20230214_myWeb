@@ -4,7 +4,7 @@
 <header>
 	<div>
 		<c:choose>
-			<c:when test="${empty lgnss }">
+			<c:when test="${empty lgnss}">
 				<button type="button" class="btn login">로그인</button>
 			</c:when>
 			<c:otherwise>
@@ -12,12 +12,19 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
+
 	<div>
-		<%if(session.getAttribute("lgnss") == null) {%>
-			<button type="button" class="btn Login">로그인</button>
-		<%} else { %>
-			<button type="button" class="btn Logout">로그아웃</button>
-		<%} %>
+		<%
+		if(session.getAttribute("lgnss") == null){
+		%>
+			<button type="button" class="btn login">로그인</button>
+		<%
+		} else {
+		%>
+			<button type="button" class="btn logout">로그아웃</button>
+		<%
+		}
+		%>
 	</div>
 	<hr>
 </header>
