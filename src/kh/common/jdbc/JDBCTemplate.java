@@ -13,13 +13,13 @@ public class JDBCTemplate {
 			Class.forName("oracle.jdbc.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "KH", "KH");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			e.printStackTrace(); 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		if (conn != null)
-			System.out.println("DB연결 성공~~~~");
+			System.out.println("DB 연결 성공~~~~");
 		else
 			System.out.println("!!!!!!!!!! DB 연결 실패 !!!!!!!!!!");
 		return conn;
